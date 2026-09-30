@@ -1,0 +1,114 @@
+<!--
+  ============================================================================
+  PROPRIETÁRIO: Mauricio Spark
+  MARCA:        SparkMauricio
+  PROJETO:      Marco
+  VERSÃO:       v1.0.0
+  LINHAGEM:     SPARK
+  ============================================================================
+  Sistema de Registro de Recibos de Compra e Venda de Terra / Posse Rural
+  COPYRIGHT: © 2026 / Mauricio Spark. Todos os direitos reservados.
+  ============================================================================
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marco</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="favicon/manifest.json">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div class="bar">
+  <button onclick="window.print()">Imprimir / salvar PDF</button>
+  <button class="alt" onclick="limpar()">Limpar campos</button>
+</div>
+<main>
+<div class="header">
+  <div class="logo">
+    <img src="favicon/logo.png" alt="Logo Marco">
+  </div>
+  <h1>Marco</h1>
+  <p class="subtitle">Recibo de Compra e Venda de Terra / Posse Rural</p>
+</div>
+
+<div class="row">
+  <label>Data<input type="text" id="data" name="data" placeholder="__ de ________ de 20__" autocomplete="off"></label>
+  <label>Local<input type="text" name="local" placeholder="Cidade / comunidade" autocomplete="address-level2"></label>
+</div>
+<div class="row">
+  <label>Valor total (R$)<input type="text" name="valor_total" placeholder="0,00" autocomplete="off"></label>
+  <label>Valor por extenso<input type="text" name="valor_extenso" autocomplete="off"></label>
+</div>
+
+<h2>1. Dados do(a) vendedor(a) (transmitente)</h2>
+<div class="row"><label class="w">Nome completo<input type="text" name="vendedor_nome" autocomplete="name"></label></div>
+<div class="row">
+  <label>Nacionalidade<input type="text" name="vendedor_nacionalidade" autocomplete="off"></label>
+  <label>Estado civil<input type="text" name="vendedor_estado_civil" autocomplete="off"></label>
+  <label>Profissão<input type="text" name="vendedor_profissao" autocomplete="organization-title"></label>
+</div>
+<div class="row">
+  <label>RG nº<input type="text" name="vendedor_rg" autocomplete="off"></label>
+  <label>CPF nº<input type="text" name="vendedor_cpf" inputmode="numeric" placeholder="000.000.000-00" autocomplete="off"></label>
+</div>
+<div class="row"><label class="w">Endereço atual / comunidade<input type="text" name="vendedor_endereco" autocomplete="street-address"></label></div>
+
+<h2>2. Dados do(a) comprador(a) (adquirente)</h2>
+<div class="row"><label class="w">Nome completo<input type="text" name="comprador_nome" autocomplete="name"></label></div>
+<div class="row">
+  <label>Nacionalidade<input type="text" name="comprador_nacionalidade" autocomplete="off"></label>
+  <label>Estado civil<input type="text" name="comprador_estado_civil" autocomplete="off"></label>
+  <label>Profissão<input type="text" name="comprador_profissao" autocomplete="organization-title"></label>
+</div>
+<div class="row">
+  <label>RG nº<input type="text" name="comprador_rg" autocomplete="off"></label>
+  <label>CPF nº<input type="text" name="comprador_cpf" inputmode="numeric" placeholder="000.000.000-00" autocomplete="off"></label>
+</div>
+<div class="row"><label class="w">Endereço atual / comunidade<input type="text" name="comprador_endereco" autocomplete="street-address"></label></div>
+
+<h2>3. Descrição e medidas do terreno</h2>
+<div class="row"><label class="w">Nome da propriedade / localidade<input type="text" name="propriedade_nome" autocomplete="off"></label></div>
+<div class="row">
+  <label>Largura (metros)<input type="number" id="larg" name="largura" min="0" step="any" autocomplete="off"></label>
+  <label>Comprimento (metros)<input type="number" id="comp" name="comprimento" min="0" step="any" autocomplete="off"></label>
+  <label>Tamanho total da área<input type="text" id="area" name="area_total" placeholder="hectares, alqueires ou m²" autocomplete="off"></label>
+</div>
+<p class="hint" id="calc">Informe largura e comprimento para calcular a área aproximada.</p>
+<div class="row"><label class="w">Confrontações: frente<input type="text" name="confrontacao_frente" autocomplete="off"></label></div>
+<div class="row"><label class="w">Confrontações: fundos<input type="text" name="confrontacao_fundos" autocomplete="off"></label></div>
+<div class="row"><label class="w">Confrontações: lado direito<input type="text" name="confrontacao_direito" autocomplete="off"></label></div>
+<div class="row"><label class="w">Confrontações: lado esquerdo<input type="text" name="confrontacao_esquerdo" autocomplete="off"></label></div>
+
+<h2>4. Geolocalização (GPS)</h2>
+<div class="row">
+  <label class="w">Coordenadas de referência (latitude, longitude)<input type="text" id="gps" name="gps_coordenadas" placeholder="-3.1190, -60.0217" autocomplete="off"></label>
+</div>
+<button class="alt" onclick="gps()" style="margin-top:.3rem">Usar minha localização atual</button>
+<p class="hint" id="gpsmsg">Você também pode copiar as coordenadas do mapa do celular.</p>
+
+<h2>5. Declaração de pagamento e quitação</h2>
+<p class="txt">Declara(m) o(a) VENDEDOR(A) que recebeu(ram) do(a) COMPRADOR(A) a importância total de R$ <input type="text" name="valor_recebido" style="width:11rem;display:inline-block" aria-label="Valor recebido" autocomplete="off">, paga da seguinte forma:</p>
+<label class="chk"><input type="checkbox" name="pagamento_avista"> À vista, em dinheiro / PIX</label>
+<label class="chk"><input type="checkbox" name="pagamento_parcelado"> Parcelado conforme acordo entre as partes (descrever abaixo, se houver)</label>
+<div class="row"><label class="w">Condições do parcelamento<input type="text" name="parcelamento_condicoes" autocomplete="off"></label></div>
+<p class="txt">Dando por meio deste recibo plena, rasa e irrevogável quitação, transferindo neste ato a posse mansa, pacífica, contínua e de boa-fé do referido terreno, com todas as benfeitorias nele existentes, para o(a) COMPRADOR(A), que passa a ser o(a) único(a) possuidor(a) a partir desta data.</p>
+
+<h2>6. Assinaturas</h2>
+<div class="row sign">
+  <div>VENDEDOR(A)<br><input type="text" name="assinatura_vendedor_cpf" placeholder="CPF" aria-label="CPF do vendedor" autocomplete="off"></div>
+  <div>COMPRADOR(A)<br><input type="text" name="assinatura_comprador_cpf" placeholder="CPF" aria-label="CPF do comprador" autocomplete="off"></div>
+</div>
+
+<h2>7. Testemunhas</h2>
+<p class="hint" style="margin-top:0">Atestam a veracidade do negócio na comunidade.</p>
+<div class="row"><label>Testemunha 1: nome<input type="text" name="testemunha1_nome" autocomplete="name"></label><label>CPF<input type="text" name="testemunha1_cpf" inputmode="numeric" placeholder="000.000.000-00" autocomplete="off"></label></div>
+<div class="row sign"><div>Assinatura da testemunha 1</div></div>
+<div class="row"><label>Testemunha 2: nome<input type="text" name="testemunha2_nome" autocomplete="name"></label><label>CPF<input type="text" name="testemunha2_cpf" inputmode="numeric" placeholder="000.000.000-00" autocomplete="off"></label></div>
+<div class="row sign"><div>Assinatura da testemunha 2</div></div>
+</main>
+<script src="javascript/script.js"></script>
+</body>
+</html>

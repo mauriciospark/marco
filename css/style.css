@@ -1,0 +1,46 @@
+/*
+  ============================================================================
+  PROPRIETÁRIO: Mauricio Spark
+  MARCA:        SparkMauricio
+  PROJETO:      Marco
+  VERSÃO:       v1.0.0
+  LINHAGEM:     SPARK
+  ============================================================================
+  Sistema de Registro de Recibos de Compra e Venda de Terra / Posse Rural
+  COPYRIGHT: © 2026 / Mauricio Spark. Todos os direitos reservados.
+  ============================================================================
+*/
+
+:root{--bg:#e9e4d8;--paper:#fbfaf6;--ink:#1f2a24;--muted:#5d6a62;--line:#9aa79d;--accent:#2f5d3a;--accent-ink:#fff;--field:#eef3e8;--error:#e74c3c;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a16;--paper:#1d2520;--ink:#e8ede6;--muted:#9fb0a4;--line:#4a5a50;--accent:#7fbf8a;--accent-ink:#10200f;--field:#27332b;--error:#e74c3c}}
+:root[data-theme="dark"]{--bg:#141a16;--paper:#1d2520;--ink:#e8ede6;--muted:#9fb0a4;--line:#4a5a50;--accent:#7fbf8a;--accent-ink:#10200f;--field:#27332b;--error:#e74c3c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.55}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);display:flex;gap:.6rem;justify-content:center;padding:.6rem;background:var(--bg);z-index:2;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+button{font:inherit;font-family:system-ui,sans-serif;font-size:.9rem;padding:.5rem 1rem;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer;transition:background-color 0.2s,border-color 0.2s}
+button:hover{background-color:var(--accent);filter:brightness(1.1)}
+button:active{transform:scale(0.98)}
+button.alt{background:transparent;color:var(--accent)}
+button.alt:hover{background:var(--accent);color:var(--accent-ink)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+main{max-width:800px;margin:0 auto 2rem;background:var(--paper);padding:clamp(1rem,4vw,3rem);border:1px solid var(--line);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.header{text-align:center;padding:2rem 0 1.5rem;margin-bottom:1.5rem;border-bottom:2px solid var(--line)}
+.logo{width:120px;height:120px;margin:0 auto 1rem}
+.logo img{width:100%;height:100%;object-fit:contain;display:block}
+h1{font-size:1.8rem;text-align:center;margin:0 0 .5rem;letter-spacing:.01em;color:var(--ink)}
+.subtitle{font-size:1rem;color:var(--muted);margin:0;font-family:system-ui,sans-serif}
+h2{font-size:1.05rem;margin:1.8rem 0 .6rem;padding-bottom:.3rem;border-bottom:2px solid var(--accent);color:var(--accent)}
+.row{display:flex;flex-wrap:wrap;gap:.6rem 1rem;margin:.5rem 0}
+label{display:flex;flex-direction:column;flex:1 1 180px;font-size:.85rem;color:var(--muted);font-family:system-ui,sans-serif}
+label.w{flex-basis:100%}
+input[type=text],input[type=number]{font:inherit;font-size:1rem;color:var(--ink);background:var(--field);border:0;border-bottom:1.5px solid var(--line);padding:.4rem .5rem;border-radius:3px 3px 0 0;width:100%;box-sizing:border-box;transition:border-color 0.2s,background-color 0.2s}
+input[type=text]:focus,input[type=number]:focus{border-bottom-color:var(--accent);background-color:var(--paper)}
+input[type=text]:disabled,input[type=number]:disabled{opacity:0.6;cursor:not-allowed}
+.chk{flex-direction:row;align-items:center;gap:.5rem;font-size:1rem;color:var(--ink);font-family:inherit}
+.chk input{width:1.1rem;height:1.1rem;accent-color:var(--accent);cursor:pointer}
+p.txt{text-align:justify;hyphens:auto}
+.sign{margin-top:2.2rem}
+.sign div{border-top:1.5px solid var(--ink);padding-top:.3rem;font-size:.9rem;flex:1 1 240px;margin-top:2rem}
+.hint{font-size:.8rem;color:var(--muted);font-family:system-ui,sans-serif}
+@media print{body{background:#fff;color:#000}.bar,.hint,.header{display:none}main{border:0;margin:0;padding:0;background:#fff;max-width:none;box-shadow:none}input{background:transparent!important;border-bottom:1px solid #000!important;color:#000!important}h2{color:#000;border-color:#000}}
