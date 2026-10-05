@@ -3,7 +3,7 @@
   PROPRIETÁRIO: Mauricio Spark
   MARCA:        SparkMauricio
   PROJETO:      Marco
-  VERSÃO:       v1.0.0
+  VERSÃO:       v1.1.0
   LINHAGEM:     SPARK
   ============================================================================
   Sistema de Registro de Recibos de Compra e Venda de Terra / Posse Rural
@@ -17,6 +17,22 @@ Todas as alterações notáveis deste projeto serão documentadas neste arquivo.
 
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
+
+## [1.1.0] - 2026-10-05
+
+### Added
+
+- Funcionalidade de upload de fotos da propriedade
+- Galeria de fotos com visualização em grid
+- Botão de remoção de fotos individuais
+- Suporte a múltiplas fotos simultâneas
+- Validação de tipo de arquivo (apenas imagens)
+- Galeria oculta na impressão para economizar tinta
+
+### Changed
+
+- Reorganização das seções do formulário (seção 5 agora é "Fotos da propriedade")
+- Função limpar() agora também limpa a galeria de fotos
 
 ## [1.0.0] - 2026-09-30
 

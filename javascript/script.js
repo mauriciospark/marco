@@ -3,7 +3,7 @@
   PROPRIETÁRIO: Mauricio Spark
   MARCA:        SparkMauricio
   PROJETO:      Marco
-  VERSÃO:       v1.0.0
+  VERSÃO:       v1.1.0
   LINHAGEM:     SPARK
   ============================================================================
   Sistema de Registro de Recibos de Compra e Venda de Terra / Posse Rural
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
     document.getElementById("calc").textContent = DEFAULT_MSG;
+    document.getElementById("gallery").innerHTML = "";
   }
 
   function calc() {
@@ -164,6 +165,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   preencherDataAtual();
 
+  function handlePhotos(input) {
+    const gallery = document.getElementById("gallery");
+    const files = input.files;
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (!file.type.startsWith("image/")) continue;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const item = document.createElement("div");
+        item.className = "gallery-item";
+
+        const img = document.createElement("img");
+        img.src = e.target.result;
+        img.alt = file.name;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "remove";
+        removeBtn.innerHTML = "×";
+        removeBtn.onclick = () => item.remove();
+
+        item.appendChild(img);
+        item.appendChild(removeBtn);
+        gallery.appendChild(item);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
   window.limpar = limpar;
   window.gps = gps;
+  window.handlePhotos = handlePhotos;
 });

@@ -3,7 +3,7 @@
   PROPRIETÁRIO: Mauricio Spark
   MARCA:        SparkMauricio
   PROJETO:      Marco
-  VERSÃO:       v1.0.0
+  VERSÃO:       v1.1.0
   LINHAGEM:     SPARK
   ============================================================================
   Sistema de Registro de Recibos de Compra e Venda de Terra / Posse Rural
@@ -13,11 +13,11 @@
 
 # Marco — (Linhagem SPARK)
 
-Sistema de registro de recibos de compra e venda de terras rurais, projetado para facilitar a formalização de transações imobiliárias em comunidades rurais com validação automática de dados e geolocalização integrada.
+Sistema de registro de recibos de compra e venda de terras rurais, projetado para facilitar a formalização de transações imobiliárias em comunidades rurais com validação automática de dados, geolocalização integrada e documentação visual.
 
 ## Descrição
 
-O Marco é uma aplicação web local-first que permite a criação e impressão de recibos de compra e venda de terras e posse rural. O sistema resolve o problema da falta de formalização em transações rurais, oferecendo uma interface intuitiva com validação automática de CPF, cálculo de área do terreno, geolocalização GPS e formatação automática de valores monetários. Tudo funciona localmente no navegador, sem necessidade de conexão com a internet ou servidores externos.
+O Marco é uma aplicação web local-first que permite a criação e impressão de recibos de compra e venda de terras e posse rural. O sistema resolve o problema da falta de formalização em transações rurais, oferecendo uma interface intuitiva com validação automática de CPF, cálculo de área do terreno, geolocalização GPS, upload de fotos da propriedade e formatação automática de valores monetários. Tudo funciona localmente no navegador, sem necessidade de conexão com a internet ou servidores externos.
 
 ## Stack
 
@@ -39,6 +39,7 @@ O Marco é uma aplicação web local-first que permite a criação e impressão 
 - **Validação de CPF**: Validação automática de CPFs digitados com feedback visual de erro
 - **Formatação automática**: Máscara automática para CPF (000.000.000-00) e valores monetários (R$)
 - **Geolocalização GPS**: Captura automática das coordenadas GPS do local via API nativa
+- **Upload de fotos**: Galeria de fotos da propriedade com suporte a múltiplas imagens e remoção individual
 - **Preenchimento automático de data**: Data atual preenchida automaticamente no formato brasileiro
 - **Impressão/PDF**: Geração de recibos prontos para impressão ou salvamento como PDF
 - **Tema escuro**: Suporte automático a tema escuro conforme preferência do sistema

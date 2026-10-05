@@ -3,7 +3,7 @@
   PROPRIETÁRIO: Mauricio Spark
   MARCA:        SparkMauricio
   PROJETO:      Marco
-  VERSÃO:       v1.0.0
+  VERSÃO:       v1.1.0
   LINHAGEM:     SPARK
   ============================================================================
   Sistema de Registro de Recibos de Compra e Venda de Terra / Posse Rural
@@ -23,11 +23,13 @@ O Marco adota uma arquitetura **Local-First** com padrão **Client-Side Only**. 
    - HTML5 semântico estruturando o formulário
    - CSS3 com variáveis para temas e responsividade
    - Interface otimizada para impressão nativa do navegador
+   - Galeria de fotos com grid responsivo
 
 2. **Camada de Lógica (Controller)**
    - JavaScript vanilla (ES6+) manipulando o DOM
    - Validações em tempo real (CPF, valores monetários)
    - Cálculos automáticos (área do terreno)
+   - Processamento de imagens via FileReader API
    - Integração com APIs nativas do navegador (Geolocalização)
 
 3. **Camada de Dados (Model)**
@@ -112,7 +114,25 @@ Input (largura/comprimento) → parseFloat() → Cálculo matemático → Format
 8. Atualização do elemento `#calc` no DOM
 9. Preenchimento automático do campo `#area` se vazio
 
-### 3. Geolocalização
+### 3. Upload de Fotos
+
+```
+Usuário seleciona arquivos → change event → FileReader → Base64 → DOM
+```
+
+**Fluxo:**
+
+1. Usuário clica no campo de upload e seleciona uma ou mais fotos
+2. Evento 'change' dispara função `handlePhotos()`
+3. Sistema itera sobre cada arquivo selecionado
+4. Validação: verifica se é uma imagem (type.startsWith("image/"))
+5. FileReader converte cada imagem para base64
+6. Elemento DOM criado para cada foto (div.gallery-item)
+7. Imagem exibida na galeria com botão de remoção
+8. Botão de remoção permite excluir fotos individuais
+9. Fotos permanecem apenas na memória do navegador (não são persistidas)
+
+### 4. Geolocalização
 
 ```
 Botão clicado → Verificação de suporte → navigator.geolocation → Coordenadas → Formatação → DOM
@@ -132,7 +152,7 @@ Botão clicado → Verificação de suporte → navigator.geolocation → Coorde
 7. Preenchimento do campo `#gps`
 8. Feedback visual ao usuário
 
-### 4. Impressão
+### 5. Impressão
 
 ```
 Usuário clica imprimir → window.print() → @media print CSS → Renderização → PDF/Físico

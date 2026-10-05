@@ -3,7 +3,7 @@
   PROPRIETÁRIO: Mauricio Spark
   MARCA:        SparkMauricio
   PROJETO:      Marco
-  VERSÃO:       v1.0.0
+  VERSÃO:       v1.1.0
   LINHAGEM:     SPARK
   ============================================================================
   Sistema de Registro de Recibos de Compra e Venda de Terra / Posse Rural
@@ -55,3 +55,4 @@ Próximos passos e melhorias planejadas para o Marco:
 - **Multi-idioma**: Suporte para inglês e espanhol para uso em outros países da América Latina
 - **Versão móvel nativa**: Aplicativo mobile para iOS e Android com capacidades offline expandidas
 - **Assinatura digital**: Integração com certificados digitais para assinaturas eletrônicas válidas juridicamente
+- **Impressão de fotos**: Opção para incluir fotos da propriedade na versão impressa do recibo

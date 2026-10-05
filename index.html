@@ -3,7 +3,7 @@
   PROPRIETÁRIO: Mauricio Spark
   MARCA:        SparkMauricio
   PROJETO:      Marco
-  VERSÃO:       v1.0.0
+  VERSÃO:       v1.1.0
   LINHAGEM:     SPARK
   ============================================================================
   Sistema de Registro de Recibos de Compra e Venda de Terra / Posse Rural
@@ -89,20 +89,30 @@
 <button class="alt" onclick="gps()" style="margin-top:.3rem">Usar minha localização atual</button>
 <p class="hint" id="gpsmsg">Você também pode copiar as coordenadas do mapa do celular.</p>
 
-<h2>5. Declaração de pagamento e quitação</h2>
+<h2>5. Fotos da propriedade</h2>
+<p class="hint">Adicione fotos da propriedade para documentação visual (opcional).</p>
+<div class="row">
+  <label class="w">
+    Upload de fotos
+    <input type="file" id="fotos" name="fotos_propriedade" accept="image/*" multiple onchange="handlePhotos(this)">
+  </label>
+</div>
+<div id="gallery" class="gallery"></div>
+
+<h2>6. Declaração de pagamento e quitação</h2>
 <p class="txt">Declara(m) o(a) VENDEDOR(A) que recebeu(ram) do(a) COMPRADOR(A) a importância total de R$ <input type="text" name="valor_recebido" style="width:11rem;display:inline-block" aria-label="Valor recebido" autocomplete="off">, paga da seguinte forma:</p>
 <label class="chk"><input type="checkbox" name="pagamento_avista"> À vista, em dinheiro / PIX</label>
 <label class="chk"><input type="checkbox" name="pagamento_parcelado"> Parcelado conforme acordo entre as partes (descrever abaixo, se houver)</label>
 <div class="row"><label class="w">Condições do parcelamento<input type="text" name="parcelamento_condicoes" autocomplete="off"></label></div>
 <p class="txt">Dando por meio deste recibo plena, rasa e irrevogável quitação, transferindo neste ato a posse mansa, pacífica, contínua e de boa-fé do referido terreno, com todas as benfeitorias nele existentes, para o(a) COMPRADOR(A), que passa a ser o(a) único(a) possuidor(a) a partir desta data.</p>
 
-<h2>6. Assinaturas</h2>
+<h2>7. Assinaturas</h2>
 <div class="row sign">
   <div>VENDEDOR(A)<br><input type="text" name="assinatura_vendedor_cpf" placeholder="CPF" aria-label="CPF do vendedor" autocomplete="off"></div>
   <div>COMPRADOR(A)<br><input type="text" name="assinatura_comprador_cpf" placeholder="CPF" aria-label="CPF do comprador" autocomplete="off"></div>
 </div>
 
-<h2>7. Testemunhas</h2>
+<h2>8. Testemunhas</h2>
 <p class="hint" style="margin-top:0">Atestam a veracidade do negócio na comunidade.</p>
 <div class="row"><label>Testemunha 1: nome<input type="text" name="testemunha1_nome" autocomplete="name"></label><label>CPF<input type="text" name="testemunha1_cpf" inputmode="numeric" placeholder="000.000.000-00" autocomplete="off"></label></div>
 <div class="row sign"><div>Assinatura da testemunha 1</div></div>
